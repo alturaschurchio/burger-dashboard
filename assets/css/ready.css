@@ -48,7 +48,7 @@
 body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: 'nunito', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -2037,9 +2037,9 @@ body {
 }
 
 .main-header {
-  min-height: 55px;
+  min-height: 70px;
   width: 100%;
-  background: #ffffff;
+  background: #d9ba21;
   position: fixed;
   z-index: 1001;
   border-bottom: 1px solid #eee;
@@ -2245,7 +2245,7 @@ body {
   width: calc(100% - 260px);
   min-height: 100%;
   float: right;
-  background: #f2f3f8;
+  background: #dcdada;
 }
 .main-panel .content {
   padding: 30px 15px;
@@ -5982,7 +5982,7 @@ body {
   justify-content: center;
 }
 .chart-circle .circles-text {
-  font-size: 28px !important;
+  font-size: 18px !important;
 }
 
 .color-box {

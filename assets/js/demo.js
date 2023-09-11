@@ -1,12 +1,12 @@
 
 Circles.create({
 	id:           'task-complete',
-	radius:       75,
+	radius:       35,
 	value:        23,
 	maxValue:     100,
 	width:        8,
 	text:         function(value){return value + '%';},
-	colors:       ['#eee', '#1D62F0'],
+	colors:       ['#e4e7e4', '#59d05d'],
 	duration:     550,
 	wrpClass:     'circles-wrp',
 	textClass:    'circles-text',

@@ -5,7 +5,9 @@
 	<title>Alturas Church Burger Sales Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./assets/css/ready.css">
 	<link rel="stylesheet" href="./assets/css/demo.css">
 </head>
@@ -27,13 +29,13 @@
 				</div>
 			</nav>
 		</div>
-		<div class="sidebar mt-3">
+		<div class="sidebar mt-3 bg-dark">
 				<div class="scrollbar-inner sidebar-wrapper">
 					<ul class="nav">
 						<li class="nav-item active">
 							<a href="index.html">
 								<i class="la la-dashboard"></i>
-								<p>Dashboard</p>
+								<p class="text-light">Dashboard</p>
 							</a>
 						</li>
 					</ul>
@@ -43,55 +45,49 @@
 			<div class="content">
 				<div class="container-fluid">
 					<h4 class="page-title text-muted">
-						<img src="./assets/img/burger.png" width="60px"/> Dashboard Ventas Hamburguesas
+						<div class="row">
+							<div class="col-md-2">
+								<img src="./assets/img/burger.png" width="60px"/>
+							</div>
+							<div class="col-md-10 my-auto text-dark">
+								Dashboard Ventas Hamburguesas
+							</div>
+						</div>
 					</h4>
 					<div class="row pt-3">
 						<div class="col-md-4">
 							<div class="card card-stats">
 								<div class="card-body card-primary">
 									<div class="row">
-										<div class="col-4">
-											<div class="icon-big text-center">
-												<i class="la la-check-circle"></i>
-											</div>
-										</div>
 										<div class="col-8 d-flex align-items-center">
 											<div class="numbers">
 												<p class="card-category">VENTAS OBJETIVO</p>
 												<h4 class="card-title" style="font-size: 150%;">200</h4>
 											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="card card-stats">
-								<div class="card-body card-success">
-									<div class="row">
 										<div class="col-4">
 											<div class="icon-big text-center">
-												<i class="la la-money"></i>
-											</div>
-										</div>
-										<div class="col-8 d-flex align-items-center">
-											<div class="numbers">
-												<p class="card-category">VENTAS CERRADAS</p>
-												<h4 class="card-title" style="font-size: 150%;">46</h4>
-												
+												<i class="la la-check-circle"></i>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-md-3">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">% Ventas Cerradas</h4>
-								</div>
-								<div class="card-body p-0">
-									<div id="task-complete" class="chart-circle mt-4 mb-3"></div>
+						<div class="col-md-4">
+							<div class="card card-stats">
+								<div class="card-body card-light">
+									<div class="row">
+										<div class="col-8 d-flex align-items-center">
+											<div class="numbers">
+												<p class="card-category text-dark">VENTAS CERRADAS</p>
+												<h4 class="card-title" style="font-size: 150%;">46</h4>					
+											</div>
+										</div>
+										<div class="col-4 text-left">
+											<div id="task-complete" class="chart-circle mt-0 mb-0"></div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -99,13 +95,13 @@
 					</div>
 
 					<div class="row row-card-no-pd py-0">
-						<div class="col-md-7">
+						<div class="col-md-12">
 							<div class="card">
-								<div class="card-header ">
+								<div class="card-header p-2">
 									<h4 class="card-title">Ventas por Equipo</h4>
 								</div>
 								<div class="card-body">
-									<table class="table table-responsive table-head-bg-success table-striped table-hover">
+									<table class="table table-responsive table-sm table-hover table-head-bg-primary">
 										<thead>
 											<tr>
 												<th scope="col">#</th>
@@ -119,51 +115,70 @@
 										<tbody>
 											<tr>
 												<td>1</td>
-												<td>Oración los Lunes</td>
-												<td>34</td>
-												<td class="text-danger">0</td>
-												<td class="text-danger">0%</td>
-												<td class="text-danger">0%</td>
+												<td>
+													<!--<span class="la la-smile-o text-success" style="font-size: 125%;"></span>-->
+													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
+													Oración los Lunes
+												</td>
+												<td class="text-center">34</td>
+												<td class="text-center text-danger">0</td>
+												<td class="text-center text-danger">0%</td>
+												<td class="text-center text-danger">0%</td>
 											</tr>
 											<tr>
 												<td>2</td>
-												<td>Oración los Martes</td>
-												<td>34</td>
-												<td class="text-danger">0</td>
-												<td class="text-danger">0%</td>
-												<td class="text-danger">0%</td>
+												<td>
+													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
+													Oración los Martes
+												</td>
+												<td class="text-center">34</td>
+												<td class="text-center text-danger">0</td>
+												<td class="text-center text-danger">0%</td>
+												<td class="text-center text-danger">0%</td>
 											</tr>
 											<tr>
 												<td>3</td>
-												<td>Oración los Miércoles</td>
-												<td>34</td>
-												<td class="text-danger">0</td>
-												<td class="text-danger">0%</td>
-												<td class="text-danger">0%</td>
+												<td>
+													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
+													Oración los Miércoles
+												</td>
+												<td class="text-center">34</td>
+												<td class="text-center text-danger">0</td>
+												<td class="text-center text-danger">0%</td>
+												<td class="text-center text-danger">0%</td>
 											</tr>
 											<tr>
 												<td>4</td>
-												<td>Oración los Jueves</td>
-												<td>34</td>
-												<td class="text-danger">0</td>
-												<td class="text-danger">0%</td>
-												<td class="text-danger">0%</td>
+												<td>
+													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
+													Oración los Jueves
+												</td>
+												<td class="text-center">34</td>
+												<td class="text-center text-danger">0</td>
+												<td class="text-center text-danger">0%</td>
+												<td class="text-center text-danger">0%</td>
 											</tr>
 											<tr>
 												<td>5</td>
-												<td>Oración los Viernes</td>
-												<td>34</td>
-												<td>46</td>
-												<td>135%</td>
-												<td>23%</td>
+												<td>
+													<span class="la la-trophy text-warning" style="font-size: 170%;"></span>
+													Oración los Viernes
+												</td>
+												<td class="text-center">34</td>
+												<td class="text-center">46</td>
+												<td class="text-center">135%</td>
+												<td class="text-center">23%</td>
 											</tr>
 											<tr>
-												<td>1</td>
-												<td>Oración los Sábados</td>
-												<td>30</td>
-												<td class="text-danger">0</td>
-												<td class="text-danger">0%</td>
-												<td class="text-danger">0%</td>
+												<td>6</td>
+												<td>
+													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
+													Oración los Sábados
+												</td>
+												<td class="text-center">30</td>
+												<td class="text-center text-danger">0</td>
+												<td class="text-center text-danger">0%</td>
+												<td class="text-center text-danger">0%</td>
 											</tr>
 										</tbody>
 									</table>
