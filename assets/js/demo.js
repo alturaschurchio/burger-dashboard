@@ -1,3 +1,6 @@
+$(document).ready(function() {
+	$(".main-panel").fadeIn(500).delay(2000);
+});
 
 Circles.create({
 	id:           'task-complete',
