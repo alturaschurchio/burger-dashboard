@@ -2,7 +2,7 @@
 Circles.create({
 	id:           'task-complete',
 	radius:       35,
-	value:        23,
+	value:        26,
 	maxValue:     100,
 	width:        8,
 	text:         function(value){return value + '%';},

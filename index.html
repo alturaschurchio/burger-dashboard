@@ -1,18 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Alturas Church Burger Sales Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script src="dashboard.js"></script>
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./assets/css/ready.css">
 	<link rel="stylesheet" href="./assets/css/demo.css">
+	<style>
+		@keyframes rellenar {
+			to {
+				stroke-dasharray: var(--porcentaje) 100;
+			}
+		}
+		.porcentaje {
+			position: relative;
+			width: 90px;
+			height: 90px;
+		}
+		.porcentaje span {
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			bottom: 5%;
+			right: 0%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font: 22px/1em Verdana;
+			color: #8d8d8d;
+		}
+		circle {
+			fill: none;
+			stroke-width: 8;
+			transform: rotate(-90deg);
+			transform-origin: 50%;
+			stroke-dasharray: 100 100;
+			stroke: #d6d8d6;
+		}
+		circle:nth-child(2) {
+			stroke: #59d05d;
+			stroke-dasharray: 0 100;
+			animation: rellenar 2s linear forwards;
+		}
+	</style>
 </head>
 <body>
-	<div class="wrapper">
+	<div ng-controller="TeamListController as baseList" class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
 				<a href="index.html" class="logo">
@@ -62,7 +101,7 @@
 										<div class="col-8 d-flex align-items-center">
 											<div class="numbers">
 												<p class="card-category">VENTAS OBJETIVO</p>
-												<h4 class="card-title" style="font-size: 150%;">200</h4>
+												<h4 class="card-title" style="font-size: 150%;">{{baseList.generalTarget}}</h4>
 											</div>
 										</div>
 										<div class="col-4">
@@ -81,11 +120,45 @@
 										<div class="col-8 d-flex align-items-center">
 											<div class="numbers">
 												<p class="card-category text-dark">VENTAS CERRADAS</p>
-												<h4 class="card-title" style="font-size: 150%;">46</h4>					
+												<h4 class="card-title" style="font-size: 150%;">{{baseList.totalSales.general}}</h4>					
 											</div>
 										</div>
 										<div class="col-4 text-left">
-											<div id="task-complete" class="chart-circle mt-0 mb-0"></div>
+											<div class="porcentaje" style="--porcentaje: 26">
+												<svg width="90" height="90">
+													<circle r="40" cx="50%" cy="50%" pathlength="100"/>
+													<circle r="40" cx="50%" cy="50%" pathlength="100"/>
+												</svg>
+												<span class="progress-value"></span>
+											</div>
+											<!--END-->
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											<hr>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-4">
+											<div class="card border-danger p-2" style="width: 5rem;">
+												<img class="card-img-top" src="./assets/img/res.png" alt="Card image cap">
+												<div class="card-body">
+													<p class="card-text text-center font-weight-bold">
+														<span class="badge badge-danger">{{baseList.totalSales.beef}}</span>
+													</p>
+												</div>
+											</div>										
+										</div>
+										<div class="col-6">
+											<div class="card border-danger p-2 " style="width: 5rem;">
+												<img class="card-img-top" src="./assets/img/pollo.png" alt="Card image cap">
+												<div class="card-body">
+													<p class="card-text text-center font-weight-bold">
+														<span class="badge badge-danger">{{baseList.totalSales.chicken}}</span>
+													</p>
+												</div>
+											</div>										
 										</div>
 									</div>
 								</div>
@@ -113,72 +186,18 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
+											<tr ng-repeat="(key, team) in baseList.teams" ng-class="[{'table-danger': team.completedSales.general <= 0}, {'font-weight-bold': team.completedSales.general <= 0}]">
+												<td>{{key + 1}}</td>
 												<td>
-													<!--<span class="la la-smile-o text-success" style="font-size: 125%;"></span>-->
-													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
-													Oración los Lunes
+													<span ng-if="team.completedSales.general >= team.targetSales" class="la la-trophy text-warning" style="font-size: 170%;"></span>
+													<span ng-if="team.completedSales.general > 0 && team.completedSales < team.targetSales" class="la la-smile-o text-success" style="font-size: 125%;"></span>
+													<span ng-if="team.completedSales.general <= 0" class="la la-frown-o text-danger" style="font-size: 125%;"></span>
+													{{team.name}}
 												</td>
-												<td class="text-center">34</td>
-												<td class="text-center text-danger">0</td>
-												<td class="text-center text-danger">0%</td>
-												<td class="text-center text-danger">0%</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>
-													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
-													Oración los Martes
-												</td>
-												<td class="text-center">34</td>
-												<td class="text-center text-danger">0</td>
-												<td class="text-center text-danger">0%</td>
-												<td class="text-center text-danger">0%</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>
-													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
-													Oración los Miércoles
-												</td>
-												<td class="text-center">34</td>
-												<td class="text-center text-danger">0</td>
-												<td class="text-center text-danger">0%</td>
-												<td class="text-center text-danger">0%</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td>
-													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
-													Oración los Jueves
-												</td>
-												<td class="text-center">34</td>
-												<td class="text-center text-danger">0</td>
-												<td class="text-center text-danger">0%</td>
-												<td class="text-center text-danger">0%</td>
-											</tr>
-											<tr>
-												<td>5</td>
-												<td>
-													<span class="la la-trophy text-warning" style="font-size: 170%;"></span>
-													Oración los Viernes
-												</td>
-												<td class="text-center">34</td>
-												<td class="text-center">46</td>
-												<td class="text-center">135%</td>
-												<td class="text-center">23%</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>
-													<span class="la la-frown-o text-danger" style="font-size: 125%; opacity: 0.6;"></span>
-													Oración los Sábados
-												</td>
-												<td class="text-center">30</td>
-												<td class="text-center text-danger">0</td>
-												<td class="text-center text-danger">0%</td>
-												<td class="text-center text-danger">0%</td>
+												<td class="text-center">{{team.targetSales}}</td>
+												<td class="text-center">{{team.completedSales.general}}</td>
+												<td class="text-center">{{team.grupalSalesPercentage}}%</td>
+												<td class="text-center">{{team.generalSalesPercentage}}%</td>
 											</tr>
 										</tbody>
 									</table>
