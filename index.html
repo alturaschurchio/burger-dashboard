@@ -96,7 +96,7 @@
 					<div class="row pt-3">
 						<div class="col-md-4">
 							<div class="card card-stats">
-								<div class="card-body card-primary">
+								<div class="card-body" ng-class="[{'card-primary': baseList.totalSales.general < baseList.generalTarget}, {'card-success': baseList.totalSales.general >= baseList.generalTarget}]">
 									<div class="row">
 										<div class="col-8 d-flex align-items-center">
 											<div class="numbers">
@@ -106,7 +106,8 @@
 										</div>
 										<div class="col-4">
 											<div class="icon-big text-center">
-												<i class="la la-check-circle"></i>
+												<i ng-if="baseList.totalSales.general < baseList.generalTarget" class="la la-check-circle"></i>
+												<img ng-if="baseList.totalSales.general >= baseList.generalTarget" src="./assets/img/exito.png" width="85" alt="">
 											</div>
 										</div>
 									</div>
