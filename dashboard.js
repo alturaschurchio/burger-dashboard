@@ -40,8 +40,8 @@ angular.module('myApp', [])
                 name: "Oración los Jueves",
                 targetSales: 34,
                 completedSales: {
-                    general: 0,
-                    beef: 0,
+                    general: 24,
+                    beef: 24,
                     chicken: 0,
                 },
                 grupalSalesPercentage: -1,
@@ -62,8 +62,8 @@ angular.module('myApp', [])
                 name: "Oración los Sábados",
                 targetSales: 30,
                 completedSales: {
-                    general: 18,
-                    beef: 15,
+                    general: 19,
+                    beef: 16,
                     chicken: 3,
                 },
                 grupalSalesPercentage: -1,
