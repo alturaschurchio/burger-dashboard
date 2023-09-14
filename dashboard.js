@@ -51,8 +51,8 @@ angular.module('myApp', [])
                 name: "Oración los Viernes",
                 targetSales: 34,
                 completedSales: {
-                    general: 64,
-                    beef: 58,
+                    general: 66,
+                    beef: 60,
                     chicken: 6,
                 },
                 grupalSalesPercentage: -1,
