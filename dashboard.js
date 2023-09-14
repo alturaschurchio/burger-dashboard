@@ -51,8 +51,8 @@ angular.module('myApp', [])
                 name: "Oración los Viernes",
                 targetSales: 34,
                 completedSales: {
-                    general: 54,
-                    beef: 48,
+                    general: 60,
+                    beef: 54,
                     chicken: 6,
                 },
                 grupalSalesPercentage: -1,
@@ -92,6 +92,9 @@ angular.module('myApp', [])
         let progressEndValue = base.generalPercentage;
         let speed = 2000 / base.generalPercentage;
         let progressValueElement = document.querySelector('.progress-value');
+        let percentageDivElement = document.querySelector('.porcentaje');
+
+        percentageDivElement.style.setProperty('--porcentaje', base.generalPercentage);
 
         let progress = setInterval(() => {
             progressStartValue++;
