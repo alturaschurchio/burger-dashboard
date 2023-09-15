@@ -7,8 +7,8 @@ angular.module('myApp', [])
                 name: "Oración los Lunes",
                 targetSales: 34,
                 completedSales: {
-                    general: 34,
-                    beef: 27,
+                    general: 36,
+                    beef: 29,
                     chicken: 7,
                 },
                 grupalSalesPercentage: -1,
@@ -40,9 +40,9 @@ angular.module('myApp', [])
                 name: "Oración los Jueves",
                 targetSales: 34,
                 completedSales: {
-                    general: 37,
-                    beef: 31,
-                    chicken: 6,
+                    general: 39,
+                    beef: 32,
+                    chicken: 7,
                 },
                 grupalSalesPercentage: -1,
                 generalSalesPercentage: -1,
